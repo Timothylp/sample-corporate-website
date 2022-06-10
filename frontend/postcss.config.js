@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     "postcss-import",
-    "tailwindcss",
+    "postcss-normalize",
     "postcss-flexbugs-fixes",
     "postcss-nesting",
     "postcss-custom-properties",

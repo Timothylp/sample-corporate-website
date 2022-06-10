@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
-import "@/styles/index.css"
+import "@/styles/app.scss"
 
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
