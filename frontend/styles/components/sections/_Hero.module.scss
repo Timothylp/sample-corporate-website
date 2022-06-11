@@ -1,0 +1,122 @@
+@import "../../helpers/parameters";
+@import "../../helpers/mixins";
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-inline: 8.75rem;
+  margin-bottom: 3.75rem;
+
+  @include mobile-only(lg) {
+    padding-inline: 1rem;
+  }
+
+  @include mobile-only(md) {
+    flex-direction: column-reverse;
+    gap: 0;
+    text-align: center;
+  }
+
+  .left {
+    flex: 1 1;
+
+    .title {
+      font-family: $font-second;
+      color: $color-main-2;
+      font-size: 3.75rem;
+      font-weight: 700;
+      text-transform: capitalize;
+      line-height: 6.875rem;
+      letter-spacing: 0.2px;
+
+      @include mobile-only(xl) {
+        line-height: 4.875rem;
+        font-size: 2.25rem;
+      }
+
+      .label {
+        color: $color-main;
+        text-transform: capitalize;
+        padding: 0 1.875rem;
+        margin-left: 1rem;
+        border: 8px solid $color-main;
+        position: relative;
+        display: inline-block;
+        line-height: 6.25rem;
+
+        @include mobile-only(xl) {
+          padding: 0 0.875rem;
+          line-height: 4.25rem;
+        }
+
+        .circle {
+          position: absolute;
+          background-color: #fff;
+          width: 14px;
+          height: 14px;
+          border: 9px solid $color-main;
+          border-radius: 50%;
+          z-index: 1;
+
+          &--top-left {
+            @extend .circle;
+            top: -1.35rem;
+            left: -1.35rem;
+          }
+
+          &--bottom-left {
+            @extend .circle;
+            bottom: -1.35rem;
+            left: -1.35rem;
+          }
+
+          &--top-right {
+            @extend .circle;
+            top: -1.35rem;
+            right: -1.35rem;
+          }
+
+          &--bottom-right {
+            @extend .circle;
+            bottom: -1.35rem;
+            right: -1.35rem;
+          }
+        }
+      }
+    }
+
+    .desc {
+      color: $color-second;
+      font-family: $font-second;
+      font-size: 1.25rem;
+      line-height: 2.25rem;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 2.188rem;
+
+      @include mobile-only(md) {
+        justify-content: center;
+      }
+
+      @include mobile-only(sm) {
+        gap: 0.325rem;
+        flex-direction: column-reverse;
+      }
+
+    }
+  }
+
+  .right {
+    flex-shrink: 0;
+    width: 40%;
+
+    @include mobile-only(md) {
+      width: 80%;
+      align-self: center;
+    }
+  }
+}

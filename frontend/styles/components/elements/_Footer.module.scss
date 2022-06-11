@@ -1,0 +1,86 @@
+@import "../../helpers/parameters";
+@import "../../helpers/mixins";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #2E3E5C;
+  padding: 3.438rem 8.75rem;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3.125rem;
+    border-bottom: 1px solid rgb(#EAEEF3, 0.15);
+
+    .logo {
+
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      list-style-type: none;
+
+      .social {
+
+        .icon {
+
+        }
+      }
+    }
+  }
+
+  .middle {
+    padding-block: 3.125rem 4.688rem;
+
+    .title {
+      font-family: $font-second;
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.688rem;
+      color: #fff;
+    }
+
+    .group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 5.75rem;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        .link {
+          a {
+            font-family: $font-second;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: rgba(#fff, 0.75);
+
+            &:hover {
+              color: $color-main;
+            }
+          }
+        }
+      }
+
+      .button {
+
+      }
+    }
+  }
+  .bottom {
+    text-align: center;
+    font-family: $font-second;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #fff;
+  }
+}

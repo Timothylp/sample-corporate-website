@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_trusted_companies",
+  "info": {
+    "displayName": "Trusted companies",
+    "icon": "city"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "companies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.logos"
+    }
+  }
+}

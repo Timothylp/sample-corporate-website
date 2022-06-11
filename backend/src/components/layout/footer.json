@@ -3,22 +3,37 @@
   "info": {
     "name": "Footer",
     "displayName": "Footer",
-    "icon": "caret-square-down"
+    "icon": "caret-square-down",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "logo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "columns": {
+    "socialLinks": {
+      "displayName": "Social Link",
       "type": "component",
       "repeatable": true,
-      "component": "elements.footer-section"
+      "component": "links.social-link"
+    },
+    "title": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.button-link"
     },
     "smallText": {
       "type": "string"

@@ -22,7 +22,8 @@
       "type": "enumeration",
       "enum": [
         "primary",
-        "secondary"
+        "secondary",
+        "video"
       ]
     }
   }

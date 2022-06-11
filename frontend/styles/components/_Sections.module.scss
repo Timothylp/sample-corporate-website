@@ -1,0 +1,7 @@
+@import "../helpers/mixins";
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.938rem;
+}

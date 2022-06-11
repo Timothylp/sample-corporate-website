@@ -1,43 +1,55 @@
 import PropTypes from "prop-types"
-import { linkPropTypes, mediaPropTypes } from "utils/types"
+import { buttonLinkPropTypes, linkPropTypes, mediaPropTypes } from "utils/types"
 import NextImage from "./image"
 import CustomLink from "./custom-link"
 
+import styles from "@/styles/components/elements/_Footer.module.scss"
+import ButtonLink from "@/components/elements/button-link"
+
 const Footer = ({ footer }) => {
+  console.log(footer)
   return (
-    <footer className="pt-12 bg-gray-100">
-      <div className="container flex flex-col lg:flex-row lg:justify-between">
-        <div>
+    <footer className={styles.footer}>
+      <div className={styles.top}>
+        <div className={styles.logo}>
           {footer.logo && (
-            <NextImage width="120" height="33" media={footer.logo} />
+            <NextImage
+              width={footer.logo.data.attributes.width}
+              height={footer.logo.data.attributes.height}
+              media={footer.logo}
+            />
           )}
         </div>
-        <nav className="flex flex-wrap flex-row lg:gap-20 items-start lg:justify-end mb-10">
-          {footer.columns.map((footerColumn) => (
-            <div
-              key={footerColumn.id}
-              className="mt-10 lg:mt-0 w-6/12 lg:w-auto"
-            >
-              <p className="uppercase tracking-wide font-semibold">
-                {footerColumn.title}
-              </p>
-              <ul className="mt-2">
-                {footerColumn.links.map((link) => (
-                  <li
-                    key={link.id}
-                    className="text-gray-700 py-1 px-1 -mx-1 hover:text-gray-900"
-                  >
-                    <CustomLink link={link}>{link.text}</CustomLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <ul className={styles.socials}>
+          {footer.socialLinks.map((socialLink, index) => {
+            return (
+              <li key={index} className={styles.social}>
+                {socialLink.type}
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+      <div className={styles.middle}>
+        <h3 className={styles.title}>{footer.title}</h3>
+        <nav className={styles.group}>
+          <ul className={styles.links}>
+            {footer.links.map((link, index) => {
+              return (
+                <li key={index} className={styles.link}>
+                  <CustomLink link={link}>{link.text}</CustomLink>
+                </li>
+              )
+            })}
+          </ul>
+          <ButtonLink
+            button={footer.button}
+            appearance={footer.button.type}
+            key={footer.button.id}
+          />
         </nav>
       </div>
-      <div className="text-sm bg-gray-200 py-6 text-gray-700">
-        <div className="container">{footer.smallText}</div>
-      </div>
+      <div className={styles.bottom}>{footer.smallText}</div>
     </footer>
   )
 }
@@ -45,14 +57,17 @@ const Footer = ({ footer }) => {
 Footer.propTypes = {
   footer: PropTypes.shape({
     logo: mediaPropTypes.isRequired,
-    columns: PropTypes.arrayOf(
+    socialLinks: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
           .isRequired,
-        title: PropTypes.string.isRequired,
-        links: PropTypes.arrayOf(linkPropTypes),
+        type: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
       })
     ),
+    title: PropTypes.string.isRequired,
+    links: PropTypes.arrayOf(linkPropTypes),
+    button: buttonLinkPropTypes,
     smallText: PropTypes.string.isRequired,
   }),
 }

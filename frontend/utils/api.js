@@ -232,6 +232,16 @@ export async function getPageData({ slug, locale, preview }) {
                     }
                     title
                   }
+                  ... on ComponentSectionsTrustedCompanies {
+                    id
+                    title
+                    companies {
+                      title
+                      logo {
+                        ...FileParts
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -311,29 +321,28 @@ export async function getGlobalData(locale) {
                     newTab
                     text
                   }
-                  button {
-                    id
-                    url
-                    newTab
-                    text
-                    type
-                  }
                 }
                 footer {
                   logo {
                     ...FileParts
                   }
-                  smallText
-                  columns {
-                    id
-                    title
-                    links {
-                      id
-                      url
-                      newTab
-                      text
-                    }
+                  socialLinks {
+                    type
+                    url
                   }
+                  title
+                  links {
+                    url
+                    newTab
+                    text
+                  }
+                  button {
+                    url
+                    newTab
+                    text
+                    type
+                  }
+                  smallText
                 }
               }
             }

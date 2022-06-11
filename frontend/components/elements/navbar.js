@@ -23,7 +23,11 @@ const Navbar = ({ navbar, pageContext }) => {
         {/* Content aligned to the lef t */}
         <Link href="/">
           <a>
-            <NextImage width="94" height="38" media={navbar.logo} />
+            <NextImage
+              width={navbar.logo.data.attributes.width}
+              height={navbar.logo.data.attributes.height}
+              media={navbar.logo}
+            />
           </a>
         </Link>
         {/* List of links on desktop */}

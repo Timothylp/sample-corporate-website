@@ -8,6 +8,9 @@ import TestimonialsGroup from "@/components/sections/testimonials-group"
 import RichText from "./sections/rich-text"
 import Pricing from "./sections/pricing"
 import LeadForm from "./sections/lead-form"
+import TrustedCompanies from "@/components/sections/trusted-companies"
+
+import styles from "@/styles/components/_Sections.module.scss"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -20,6 +23,7 @@ const sectionComponents = {
   ComponentSectionsRichText: RichText,
   ComponentSectionsPricing: Pricing,
   ComponentSectionsLeadForm: LeadForm,
+  ComponentSectionsTrustedCompanies: TrustedCompanies,
 }
 
 // Display a section individually
@@ -42,15 +46,10 @@ const PreviewModeBanner = () => {
   )}`
 
   return (
-    <div className="py-4 bg-red-600 text-red-100 font-semibold uppercase tracking-wide">
-      <div className="container">
+    <div>
+      <div>
         Preview mode is on.{" "}
-        <a
-          className="underline"
-          href={`/api/exit-preview?redirect=${router.asPath}`}
-        >
-          Turn off
-        </a>
+        <a href={`/api/exit-preview?redirect=${router.asPath}`}>Turn off</a>
       </div>
     </div>
   )
@@ -58,8 +57,9 @@ const PreviewModeBanner = () => {
 
 // Display the list of sections
 const Sections = ({ sections, preview }) => {
+  console.log(sections)
   return (
-    <div className="flex flex-col">
+    <main className={styles.sections}>
       {/* Show a banner if preview mode is on */}
       {preview && <PreviewModeBanner />}
       {/* Show the actual sections */}
@@ -69,7 +69,7 @@ const Sections = ({ sections, preview }) => {
           key={`${section.__typename}${section.id}`}
         />
       ))}
-    </div>
+    </main>
   )
 }
 

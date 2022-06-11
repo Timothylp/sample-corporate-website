@@ -1,0 +1,30 @@
+@import "../../helpers/parameters";
+@import "../../helpers/mixins";
+
+.trusted {
+  padding-block: 3.75rem 6.25rem;
+  background-color: rgba($color-main, 0.02);
+
+  .title {
+    font-family: $font-second;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: $color-main-2;
+    margin-bottom: 3.125rem;
+  }
+
+  .companies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+
+    .company {
+      flex-shrink: 0;
+    }
+  }
+}

@@ -4,10 +4,12 @@ $color-main-2: #1E1F4B;
 $color-second: #2E3E5C;
 
 // Fonts
-$font-main: Inter, serif;
+$font-main: 'Inter', sans-serif;
+$font-second: 'Poppins', sans-serif;
 
 // Breakpoints
 $breakpoints: (
+  xl: 1199px,
   lg: 959px,
   md: 768px,
   sm: 500px
