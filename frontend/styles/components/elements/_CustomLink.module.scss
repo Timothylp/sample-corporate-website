@@ -1,0 +1,12 @@
+@import "../../helpers/parameters";
+
+.link {
+  font-family: $font-main;
+  font-size: 16px;
+  text-decoration: none;
+  color: $color-main-2;
+
+  &:hover {
+    color: $color-main;
+  }
+}

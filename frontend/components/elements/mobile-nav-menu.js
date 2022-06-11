@@ -2,45 +2,40 @@ import PropTypes from "prop-types"
 import { MdClose, MdChevronRight } from "react-icons/md"
 import { mediaPropTypes, linkPropTypes, buttonLinkPropTypes } from "utils/types"
 import { useLockBodyScroll } from "utils/hooks"
-import { getButtonAppearance } from "utils/button"
-import ButtonLink from "./button-link"
 import NextImage from "./image"
 import CustomLink from "./custom-link"
+
+import styles from "@/styles/components/elements/_MobileNavMenu.module.scss"
 
 const MobileNavMenu = ({ navbar, closeSelf }) => {
   // Prevent window scroll while mobile nav menu is open
   useLockBodyScroll()
-
   return (
-    <div className="w-screen h-screen fixed top-0 left-0 overflow-y-scroll bg-white z-10 pb-6">
-      <div className="container h-full flex flex-col justify-between">
+    <div className={styles.menu}>
+      <div className={styles.container}>
         {/* Top section */}
-        <div className="flex flex-row justify-between py-2 items-center">
+        <div className={styles.top}>
           {/* Company logo */}
-          <NextImage width="120" height="33" media={navbar.logo} />
+          <NextImage width="94" height="38" media={navbar.logo} />
           {/* Close button */}
-          <button onClick={closeSelf} className="py-1 px-1">
-            <MdClose className="h-8 w-auto" />
+          <button onClick={closeSelf} className={styles.cross}>
+            <MdClose className={styles.icon} />
           </button>
         </div>
         {/* Bottom section */}
-        <div className="flex flex-col justify-end w-9/12 mx-auto">
-          <ul className="flex flex-col list-none gap-6 items-baseline text-xl mb-10">
+        <div className={styles.bottom}>
+          <ul className={styles.list}>
             {navbar.links.map((navLink) => (
-              <li key={navLink.id} className="block w-full">
+              <li key={navLink.id} className={styles.item}>
                 <CustomLink link={navLink}>
-                  <div className="hover:text-gray-900 py-6 flex flex-row justify-between items-center">
+                  <div onClick={closeSelf} className={styles.link}>
                     <span>{navLink.text}</span>
-                    <MdChevronRight className="h-8 w-auto" />
+                    <MdChevronRight className={styles.icon} />
                   </div>
                 </CustomLink>
               </li>
             ))}
           </ul>
-          <ButtonLink
-            button={navbar.button}
-            appearance={getButtonAppearance(navbar.button.type, "light")}
-          />
         </div>
       </div>
     </div>

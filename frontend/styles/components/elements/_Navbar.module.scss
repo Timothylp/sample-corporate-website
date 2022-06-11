@@ -1,0 +1,49 @@
+@import "../../helpers/parameters";
+@import "../../helpers/mixins";
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.563rem 8.75rem;
+
+  @include mobile-only(lg) {
+    padding: 1rem;
+  }
+
+  .left {}
+
+  .menu {
+
+    list-style: none;
+    display: flex;
+    gap: 3.75rem;
+
+    @include mobile-only(sm) {
+      display: none;
+    }
+  }
+
+  .right {
+    display: flex;
+
+    .hamburger {
+      display: none;
+      padding: 0.25rem;
+      background-color: transparent;
+      background-image: none;
+      cursor: pointer;
+      border: none;
+
+      @include mobile-only(sm) {
+        display: block;
+      }
+
+      .icon {
+        width: auto;
+        height: 2rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}

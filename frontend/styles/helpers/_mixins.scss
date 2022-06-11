@@ -1,0 +1,7 @@
+@import "./parameters";
+
+@mixin mobile-only ($size) {
+  @media screen and (max-width: map-get($breakpoints, $size)){
+    @content
+  }
+}

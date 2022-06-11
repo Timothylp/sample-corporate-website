@@ -9,6 +9,8 @@ import WorldIcon from "./icons/world"
 
 import { useOnClickOutside } from "../utils/hooks"
 
+import styles from "@/styles/components/_LocaleSwitch.module.scss"
+
 const LocaleSwitch = ({ pageContext }) => {
   const isMounted = useRef(false)
   const select = useRef()
@@ -59,21 +61,17 @@ const LocaleSwitch = ({ pageContext }) => {
   }, [locale, router, pageContext])
 
   return (
-    <div ref={select} className="relative ml-4 ">
+    <div ref={select} className={styles.switch}>
       <button
+        className={styles.button}
         type="button"
-        className="hover:bg-primary-50 hover:text-primary-600 focus:bg-primary-50 focus:text-primary-600 focus:outline-none flex items-center justify-between px-2 py-2 cursor-pointer h-full rounded-md w-20"
         onClick={() => setShowing(!showing)}
       >
         <WorldIcon />
-        <span className="capitalize">{locale}</span>
-        <MdExpandMore className="ml-1 text-primary-600" />
+        <span>{locale}</span>
+        <MdExpandMore />
       </button>
-      <div
-        className={`w-full bg-white p-1 mt-1 shadow-lg rounded-md ${
-          showing ? "absolute" : "hidden"
-        }`}
-      >
+      <div className={`${styles.list} ${!showing ? styles.hide : ""}`}>
         {pageContext.localizedPaths &&
           pageContext.localizedPaths.map(({ href, locale }) => {
             return (
@@ -85,8 +83,8 @@ const LocaleSwitch = ({ pageContext }) => {
                 passHref
               >
                 <p
+                  className={styles.item}
                   onClick={() => handleLocaleChange(locale)}
-                  className="capitalize hover:bg-primary-50 hover:text-primary-600  cursor-pointer p-2 rounded-md text-center hover:text-primary-600"
                 >
                   {locale}
                 </p>

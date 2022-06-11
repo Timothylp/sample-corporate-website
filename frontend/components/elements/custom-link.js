@@ -2,14 +2,16 @@ import Link from "next/link"
 import PropTypes from "prop-types"
 import { linkPropTypes } from "utils/types"
 
-const CustomLink = ({ link, className, children }) => {
+import styles from "@/styles/components/elements/_CustomLink.module.scss"
+
+const CustomLink = ({ link, children }) => {
   const isInternalLink = link.url.startsWith("/")
 
   // For internal links, use the Next.js Link component
   if (isInternalLink) {
     return (
       <Link href={link.url}>
-        <a className={className}>{children}</a>
+        <a className={styles.link}>{children}</a>
       </Link>
     )
   }
@@ -18,7 +20,7 @@ const CustomLink = ({ link, className, children }) => {
   if (link.newTab) {
     return (
       <a
-        className={className}
+        className={styles.link}
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
@@ -29,7 +31,7 @@ const CustomLink = ({ link, className, children }) => {
   }
 
   return (
-    <a className={className} href={link.url} target="_self">
+    <a className={styles.link} href={link.url} target="_self">
       {children}
     </a>
   )

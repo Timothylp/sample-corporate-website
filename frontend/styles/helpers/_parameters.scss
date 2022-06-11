@@ -2,3 +2,13 @@
 $color-main: #706FE5;
 $color-main-2: #1E1F4B;
 $color-second: #2E3E5C;
+
+// Fonts
+$font-main: Inter, serif;
+
+// Breakpoints
+$breakpoints: (
+  lg: 959px,
+  md: 768px,
+  sm: 500px
+);
