@@ -2,9 +2,10 @@ import PropTypes from "prop-types"
 import { buttonLinkPropTypes, linkPropTypes, mediaPropTypes } from "utils/types"
 import NextImage from "./image"
 import CustomLink from "./custom-link"
+import ButtonLink from "@/components/elements/button-link"
+import SocialLink from "@/components/elements/social-link"
 
 import styles from "@/styles/components/elements/_Footer.module.scss"
-import ButtonLink from "@/components/elements/button-link"
 
 const Footer = ({ footer }) => {
   console.log(footer)
@@ -24,7 +25,7 @@ const Footer = ({ footer }) => {
           {footer.socialLinks.map((socialLink, index) => {
             return (
               <li key={index} className={styles.social}>
-                {socialLink.type}
+                <SocialLink link={socialLink} />
               </li>
             )
           })}
@@ -37,7 +38,9 @@ const Footer = ({ footer }) => {
             {footer.links.map((link, index) => {
               return (
                 <li key={index} className={styles.link}>
-                  <CustomLink link={link}>{link.text}</CustomLink>
+                  <CustomLink link={link} appearance="light">
+                    {link.text}
+                  </CustomLink>
                 </li>
               )
             })}

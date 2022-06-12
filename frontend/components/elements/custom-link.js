@@ -4,14 +4,15 @@ import { linkPropTypes } from "utils/types"
 
 import styles from "@/styles/components/elements/_CustomLink.module.scss"
 
-const CustomLink = ({ link, children }) => {
+const CustomLink = ({ link, appearance, children }) => {
   const isInternalLink = link.url.startsWith("/")
+  const className = appearance === "light" ? styles["link--light"] : styles.link
 
   // For internal links, use the Next.js Link component
   if (isInternalLink) {
     return (
       <Link href={link.url}>
-        <a className={styles.link}>{children}</a>
+        <a className={className}>{children}</a>
       </Link>
     )
   }
@@ -20,7 +21,7 @@ const CustomLink = ({ link, children }) => {
   if (link.newTab) {
     return (
       <a
-        className={styles.link}
+        className={className}
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
@@ -31,7 +32,7 @@ const CustomLink = ({ link, children }) => {
   }
 
   return (
-    <a className={styles.link} href={link.url} target="_self">
+    <a className={className} href={link.url} target="_self">
       {children}
     </a>
   )
@@ -39,6 +40,7 @@ const CustomLink = ({ link, children }) => {
 
 CustomLink.propTypes = {
   link: linkPropTypes,
+  appearance: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

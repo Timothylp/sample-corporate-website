@@ -7,12 +7,22 @@
   background-color: #2E3E5C;
   padding: 3.438rem 8.75rem;
 
+  @include mobile-only(lg) {
+    padding: 3.438rem 1rem;
+  }
+
   .top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 3.125rem;
     border-bottom: 1px solid rgb(#EAEEF3, 0.15);
+
+    @include mobile-only(md) {
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+    }
 
     .logo {
 
@@ -21,6 +31,7 @@
     .socials {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 1rem;
       list-style-type: none;
 
@@ -42,6 +53,10 @@
       font-weight: 700;
       line-height: 1.688rem;
       color: #fff;
+
+      @include mobile-only(md) {
+        text-align: center;
+      }
     }
 
     .group {
@@ -49,24 +64,37 @@
       justify-content: space-between;
       align-items: center;
 
+      @include mobile-only(md) {
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+      }
+
       .links {
         display: flex;
         align-items: center;
-        gap: 5.75rem;
+        width: 100%;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
         list-style-type: none;
         margin: 0;
         padding: 0;
 
-        .link {
-          a {
-            font-family: $font-second;
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-            color: rgba(#fff, 0.75);
+        @include mobile-only(md) {
+          justify-content: center;
+          gap: 1rem;
+        }
 
-            &:hover {
-              color: $color-main;
-            }
+
+        .link {
+          margin-right: auto;
+
+          @include mobile-only(md) {
+            margin: 0;
+          }
+
+          a {
+            font-size: 0.875rem;
           }
         }
       }

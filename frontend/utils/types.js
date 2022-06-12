@@ -23,3 +23,8 @@ export const buttonLinkPropTypes = PropTypes.shape({
   text: PropTypes.string.isRequired,
   newTab: PropTypes.bool,
 })
+
+export const socialLinkPropType = PropTypes.shape({
+  type: PropTypes.oneOf(["instagram", "facebook", "twitter", "github"]),
+  link: PropTypes.string.isRequired,
+})

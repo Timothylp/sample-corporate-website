@@ -6,6 +6,11 @@
   text-decoration: none;
   color: $color-main-2;
 
+  &--light {
+    @extend .link;
+    color: rgba(#fff, 0.75);
+  }
+
   &:hover {
     color: $color-main;
   }
