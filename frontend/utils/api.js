@@ -36,8 +36,7 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
     console.error(response.statusText)
     throw new Error(`An error occured please try again`)
   }
-  const data = await response.json()
-  return data
+  return await response.json()
 }
 
 /**
@@ -161,32 +160,14 @@ export async function getPageData({ slug, locale, preview }) {
                   }
                   ... on ComponentSectionsTestimonialsGroup {
                     id
-                    description
-                    link {
-                      id
-                      newTab
-                      text
-                      url
-                    }
-                    logos {
-                      id
-                      title
-                      logo {
-                        ...FileParts
-                      }
-                    }
                     testimonials {
                       id
-                      logo {
-                        ...FileParts
-                      }
                       picture {
                         ...FileParts
                       }
                       text
                       authorName
                       authorTitle
-                      link
                     }
                     title
                   }

@@ -8,7 +8,6 @@ const TrustedCompanies = ({ data }) => {
       <h2 className={styles.title}>{data.title}</h2>
       <div className={styles.companies}>
         {data.companies.map((company, index) => {
-          console.log(company.logo)
           return (
             <div className={styles.company} key={index}>
               <NextImage
